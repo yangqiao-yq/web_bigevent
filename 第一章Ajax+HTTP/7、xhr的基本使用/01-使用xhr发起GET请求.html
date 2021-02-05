@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用xhr发起GET请求</title>
+</head>
+
+<body>
+
+    <script>
+        // 1. 创建 XHR 对象
+        var xhr = new XMLHttpRequest();
+        // 2. 调用 open 函数，传递参数 请求方式 与 URL地址
+        xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks');
+        // 3. 调用 send 函数，发起 Ajax 请求
+        xhr.send()
+            // 4. 监听 onreadystatechange 事件
+        xhr.onreadystatechange = function() {
+            // 4.1 监听 xhr 对象的请求状态 readyState ；与服务器响应的状态 status
+            // 注意：xhr.status与服务器响应回来的数据里面的status不是一个status
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // 4.2 打印服务器响应回来的数据
+                console.log(xhr.responseText);
+            }
+        }
+    </script>
+</body>
+
+</html>

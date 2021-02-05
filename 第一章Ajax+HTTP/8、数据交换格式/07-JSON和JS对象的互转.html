@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON和JS对象的互转</title>
+</head>
+
+<body>
+    <script>
+        var json = '{"a":"hello","b":"world"}';
+        // 从 JSON 字符串转换为 JS 对象，使用 JSON.parse() 方法：
+        var obj = JSON.parse(json);
+        console.log(obj);
+
+        var obj1 = {
+            name: '张三',
+            age: 20
+        };
+        var str = JSON.stringify(obj1);
+        console.log(str);
+        console.log(typeof str); //string
+    </script>
+</body>
+
+</html>

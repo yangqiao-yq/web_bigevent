@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$.post()函数</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="btn">发起post请求</button>
+    <script>
+        // 1、语法([data]表示要提交的数据)
+        // $.post(url, [data], [callback]);
+        // 2、$.post()向服务器提交数据
+        $(function() {
+            $('#btn').on('click', function() {
+                $.post('http://www.liulongbin.top:3006/api/addbook', {
+                    bookname: '张作钧',
+                    author: '杨桥',
+                    publisher: '成都图书出版社'
+                }, function(res) {
+                    console.log(res);
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

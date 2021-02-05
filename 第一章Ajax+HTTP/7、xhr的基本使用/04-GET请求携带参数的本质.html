@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET请求携带参数的本质</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        // 无论使用 $.ajax()，还是使用 $.get()，又或者直接使用 xhr 对象发起 GET 请求，当需要携带参数的时候，本质上，都是直接将参数以查询字符串的形式，追加到 URL 地址的后面，发送到服务器的。
+        $.get('http://www.liulongbin.top:3006/api/getbooks', {
+            id: 1,
+            bookname: '西游记'
+        }, function(res) {
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>

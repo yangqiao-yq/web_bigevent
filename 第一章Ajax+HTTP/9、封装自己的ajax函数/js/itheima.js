@@ -1,0 +1,32 @@
+// 封装函数把 data 对象，转化成查询字符串的格式，从而提交给服务器
+function resolveData(data) {
+    var arr = [];
+    for (var k in data) {
+        var str = k + '=' + data[k];
+        arr.push(str);
+    }
+    return arr.join('&')
+}
+// console.log(resolveData({ name: '张三', age: 20 }));
+function itheima(options) {
+    var xhr = new XMLHttpRequest();
+    // 把外界传递过来的参数对象转换为查询字符串
+    var qs = resolveData(options.data);
+    // toUpperCase()表示转换为大写
+    if (options.method.toUpperCase() === 'GET') {
+        // 发起GET请求
+        xhr.open(options.method, options.url + '?' + qs)
+        xhr.send()
+    } else if (options.method.toUpperCase() === 'POST') {
+        // 发起POST请求
+        xhr.open(options.method, options.url)
+        xhr.setRequestHeader('Content-Type',  'application/x-www-form-urlencoded')
+        xhr.send(qs)
+    }
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var result = JSON.parse(xhr.responseText);
+            options.success(result);
+        }
+    }
+}

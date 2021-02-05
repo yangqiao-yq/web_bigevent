@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何对URL进行编码与解码</title>
+</head>
+
+<body>
+    <script>
+        var str = '黑马程序员';
+        // 编码
+        var str1 = encodeURI(str);
+        console.log(str1);
+        console.log('----------------');
+        var str2 = decodeURI('%E9%BB%91%E9%A9%AC');
+        console.log(str2);
+    </script>
+</body>
+
+</html>

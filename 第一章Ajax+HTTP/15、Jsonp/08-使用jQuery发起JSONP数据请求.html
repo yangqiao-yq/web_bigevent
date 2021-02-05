@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用jQuery发起JSONP数据请求</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        // 默认情况下，使用 jQuery 发起 JSONP 请求，会自动携带一个 callback=jQueryxxx 的参数，jQueryxxx 是随机生成的一个回调函数名称
+        $(function() {
+            $.ajax({
+                url: 'http://www.liulongbin.top:3006/api/jsonp?name=zs&age=20',
+                // 如果要使用 $.ajax() 发起 JSONP 请求，必须指定 datatype 为 jsonp
+                dataType: 'jsonp',
+                success: function(res) {
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

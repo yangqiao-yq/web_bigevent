@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form标签的属性</title>
+</head>
+
+<body>
+    <!-- 1、form标签的属性-action -->
+    <!-- action 属性的值应该是后端提供的一个 URL 地址，这个 URL 地址专门负责接收表单提交过来的数据。 -->
+    <!-- 当 <form> 表单在未指定 action 属性值的情况下，action 的默认值为当前页面的 URL 地址 -->
+    <!-- 注意：当提交表单后，页面会立即跳转到 action 属性指定的 URL 地址 -->
+    <!-- 2、form标签的属性-target -->
+    <!-- target 属性用来规定在何处打开 action URL(_self默认值当前窗口  _blank新窗口中打开) -->
+    <!-- 3、form标签的属性-method -->
+    <!-- 默认情况下，method 的值为 get，表示通过URL地址的形式，把表单数据提交到 action URL -->
+    <!-- get 方式适合用来提交少量的、简单的数据。 -->
+    <!-- post 方式适合用来提交大量的、复杂的、或包含文件上传的数据，更隐蔽安全。 -->
+    <!-- 在实际开发中，<form> 表单的 post 提交方式用的最多，很少用 get。例如登录、注册、添加数据等表单操作，都需要使用 post 方式来提交表单。 -->
+    <!-- 4、form标签的属性-enctype -->
+    <!-- 在涉及到文件上传的操作时，必须将 enctype 的值设置为 multipart/form-data -->
+    <!-- 如果表单的提交不涉及到文件上传操作，则直接将 enctype 的值设置为 application/x-www-form-urlencoded 即可(默认值）！ -->
+    <form action="/login" target="_blank" method="post">
+        <input type="text" name="email_or_mobile">
+        <input type="password" name="password">
+        <button type="submit">提交</button>
+    </form>
+</body>
+
+</html>

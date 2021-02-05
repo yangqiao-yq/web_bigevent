@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$.ajax()发起POST请求</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="btnPOST">发起post请求</button>
+    <script>
+        $(function() {
+            // 3、使用$.ajax()发起post请求
+            $('#btnPOST').on('click', function() {
+                $.ajax({
+                    type: 'POST', //大小写都可以，建议大写
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    data: { // 要提交给服务器的数据
+                        bookname: '杨旭',
+                        author: '张瑞芳',
+                        publisher: '宣汉图书出版社'
+                    },
+                    success: function(res) {
+                        console.log(res);
+                    }
+                })
+            });
+        })
+    </script>
+</body>
+
+</html>

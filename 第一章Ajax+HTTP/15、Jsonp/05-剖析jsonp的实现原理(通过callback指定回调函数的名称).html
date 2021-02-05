@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过callback指定回调函数的名称</title>
+</head>
+
+<body>
+    <script>
+        function success(data) {
+            console.log('拿到了data数据');
+            console.log(data);
+        }
+    </script>
+    <script src="js/getdata.js?callback=success"></script>
+</body>
+
+</html>

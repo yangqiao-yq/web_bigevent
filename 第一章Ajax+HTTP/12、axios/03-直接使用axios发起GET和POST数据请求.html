@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直接使用axios发起GET和POST数据请求</title>
+    <script src="../lib/axios.js"></script>
+</head>
+
+<body>
+    <button id="btn1">直接使用axios发起GET请求</button>
+    <button id="btn2">直接使用axios发起POST请求</button>
+    <script>
+        // 直接使用axios发起GET请求
+        document.querySelector('#btn1').addEventListener('click', function() {
+            var url = 'http://www.liulongbin.top:3006/api/get';
+            var paramsData = {
+                name: 'zs',
+                age: 35
+            };
+            axios({
+                method: 'GET',
+                url: url,
+                params: paramsData,
+            }).then(function(res) {
+                console.log(res.data);
+            })
+        });
+        // 直接使用axios发起POST请求
+        document.querySelector('#btn2').addEventListener('click', function() {
+            axios({
+                method: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/post',
+                data:  { // POST 数据要通过 data 属性提供
+                    bookname: '程序员的自我修养',
+                    price: 666     
+                }
+            }).then(function(res) {
+                console.log(res.data);
+            })
+        })
+    </script>
+</body>
+
+</html>

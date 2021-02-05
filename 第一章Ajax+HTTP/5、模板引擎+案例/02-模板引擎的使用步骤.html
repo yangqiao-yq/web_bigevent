@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板引擎的使用步骤</title>
+    <!-- 1、导入模板引擎(在window全局就会多一个函数template('模板的id',需要渲染的数据)) -->
+    <script src="../lib/template-web.js"></script>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <!-- art-template的使用步骤
+    1、导入 art-template
+    2、定义数据
+    3、定义模板
+    4、调用 template 函数(就像导入jQuery之后window全局就会多一个$函数一样)
+    5、渲染HTML结构 -->
+    <!-- 3、定义模板 -->
+    <!-- 3.1、模板的html结构必须定义到script中 -->
+    <!-- type="text/javascript"如果不写，默认是它，意思是标签中的内容当做js解析 -->
+    <!-- {{}}是占位符，表示这里要填充数据 -->
+    <script type="text/html" id="tpl-user">
+        <h1>{{name}} ----- {{age}}</h1>
+    </script>
+    <script>
+        // 2、定义需要渲染的数据
+        var data = {
+            name: 'zs',
+            age: 20
+        };
+        // 4、调用template函数
+        var htmlStr = template('tpl-user', data);
+        console.log(htmlStr);
+        $('#container').html(htmlStr);
+    </script>
+</body>
+
+</html>

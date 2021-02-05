@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不使用节流阀实现鼠标跟随效果</title>
+    <script src="../lib/jquery.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        #angel {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="angel.gif" alt="" id="angel">
+    <script>
+        $(function() {
+            $(document).on('mousemove', function(e) {
+                // $('#angel').css('left', e.pageX + 'px').css('top', e.pageY + 'px') 
+                $('#angel').css({
+                    left: e.pageX + 'px',
+                    top: e.pageY + 'px'
+                })
+                console.log('ok');
+            })
+        })
+    </script>
+</body>
+
+</html>

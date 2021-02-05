@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标准语法-循环输出</title>
+    <script src="../lib/template-web.js"></script>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/html" id="tpl-user">
+        <h1>{{name}} ----- {{age}}</h1>
+        {{@test}}
+        <div>
+            {{if flag===0}}flag的值是0 {{else if flag===1}}flag的值是1{{/if}}
+        </div>
+        <ul>
+            {{each hobby}}
+            <li>索引是：{{$index}},循环项是：{{$value}}</li>
+            {{/each}}
+        </ul>
+    </script>
+    <script>
+        // 2、定义需要渲染的数据
+        var data = {
+            name: 'zs',
+            age: 20,
+            test: '<h3>测试原文输出</h3>',
+            flag: 1,
+            hobby: ['吃饭', '睡觉', '写代码']
+        };
+        // 4、调用template函数
+        var htmlStr = template('tpl-user', data);
+        console.log(htmlStr);
+        $('#container').html(htmlStr);
+    </script>
+</body>
+
+</html>

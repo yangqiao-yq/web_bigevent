@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery中JSONP的实现过程</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <!-- 在发起 JSONP 请求的时候，动态向 <header> 中 append 一个 <script> 标签； -->
+    <!-- 在 JSONP 请求成功以后，动态从 <header> 中移除刚才 append 进去的 <script> 标签 -->
+    <button id="btn">发起jsonp数据请求</button>
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                $.ajax({
+                    url: 'http://www.liulongbin.top:3006/api/jsonp?address=背景&location=顺义',
+                    dataType: 'jsonp',
+                    jsonpCallback: 'abc',
+                    success: function(res) {
+                        console.log(res);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

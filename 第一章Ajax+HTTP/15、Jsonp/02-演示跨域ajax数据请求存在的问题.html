@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演示跨域ajax数据请求存在的问题</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        $.ajax({
+            method: 'GET',
+            url: 'http://ajax.frontend.itheima.net:3006/api/jsonp',
+            data: {
+                name: 'zs',
+                age: 20
+            },
+            success: function(res) {
+                console.log(res); //请求失败
+            }
+        })
+    </script>
+</body>
+
+</html>

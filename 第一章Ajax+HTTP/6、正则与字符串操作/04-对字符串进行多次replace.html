@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对字符串进行多次replace</title>
+</head>
+
+<body>
+    <script>
+        var str = '<div>{{name}}今年{{age}}岁了</div>';
+        var pattern = /{{\s*([a-zA-z]+)\s*}}/;
+        // 第一次匹配
+        var result1 = pattern.exec(str);
+        str = str.replace(result1[0], result1[1]);
+        // 第二次匹配
+        var result2 = pattern.exec(str);
+        str = str.replace(result2[0], result2[1]);
+        console.log(str);
+    </script>
+</body>
+
+</html>

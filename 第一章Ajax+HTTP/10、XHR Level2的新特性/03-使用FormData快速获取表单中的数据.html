@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用FormData快速获取表单中的数据</title>
+</head>
+
+<body>
+    <!-- autocomplete="off"  自动填充 -->
+    <form id="forml">
+        <input type="text" name="uname" autocomplete="off">
+        <input type="password" name="pwd">
+        <button type="submit">提交</button>
+    </form>
+    <script>
+        // 获取表单元素
+        var form = document.querySelector('#forml');
+        // 监听表单元素的submit事件
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var fd = new FormData(form);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata');
+            xhr.send(fd);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(JSON.parse(xhr.responseText));
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

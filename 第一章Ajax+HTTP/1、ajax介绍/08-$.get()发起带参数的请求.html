@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$.get()发起带参数的请求</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="btn">发起带参数的get请求</button>
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', {
+                    id: 1
+                }, function(res) {
+                    console.log(res);
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

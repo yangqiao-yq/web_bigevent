@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过ajax提交表单数据</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <form action="/login" id="f1">
+        <input type="text" name="email_or_mobile">
+        <input type="password" name="password">
+        <button type="submit">提交</button>
+    </form>
+    <script>
+        $(function() {
+            // 第一种方式
+            // $('#f1').submit(function() {
+            // 阻止表单的默认提交和页面跳转行为
+            //  e.preventDefault();
+            // })
+            // 第二种方式(1、为表单绑定提交事件)
+            $('#f1').on('submit', function(e) {
+                // 2、阻止表单的默认提交和页面跳转行为
+                e.preventDefault();
+                // 3、serialize()函数可以一次性获取表单中的所有数据
+                // 注意：在使用 serialize() 函数快速获取表单数据时，必须为每个表单元素添加 name 属性！
+                var data = $(this).serialize();
+            })
+        })
+    </script>
+</body>
+
+</html>
